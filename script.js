@@ -50,7 +50,9 @@ form.addEventListener('submit', (e) => {
             resulthtml = document.getElementById("result").style;
             resulthtml.padding = "20px";
             resulthtml.color = "#fff";
-            document.getElementById("result").innerHTML = resultat[0];
+            // document.getElementById("result").innerHTML = concat(resultat([0])) ;
+            let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> '+ resultat[0];
+            console.log(typeof (display))
 
 
 
