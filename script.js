@@ -1,22 +1,37 @@
+// $("document").ready(function () {
+//     // $(".containerorigin").css(display) = "none";
+//     $("body").css("display") = "none";
+// });
+
+// $(document).ready(function () {
+//     // $(".containerorigin").css(display) = "none";
+//     $("preload").css("display") = "none";
+// });
+
+
+$(document).ready(function() {
+    window.onload = function () {
+    $('.preload').fadeOut(500, function(){ $('.preload').remove(); } );
+    }
+    });
+
+
+
+
+
+
 function translate(data, key) {
     if (key in data) {
         return data[key];
 
     }
     else
-    return document.getElementById("result").innerHTMl =  ['Ooooooooopsss! Sorry the word you search was not found. Please check the word and try again!'];
+        return document.getElementById("result").innerHTMl = ['Ooooooooopsss! Sorry the word you search was not found. Please check the word and try again!'];
     // return 'Sorry the word you search was not found. Please check the word and try again'
     //  console.log(typeof(data[key]))
 
 
 }
-
-
-
-
-
-
-
 // function getValues(obj, key) {
 //     var objects = [];
 //     for (var i in obj) {
