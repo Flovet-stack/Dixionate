@@ -49,8 +49,8 @@ form.addEventListener('submit', (e) => {
         };
 
         $.ajax({
-            url: '/dictionary.json',
-            type: 'POST',
+            // url: '/dictionary.json',
+            // type: 'POST',
             datatype: 'json',
 
             beforeSend: function () {
@@ -59,9 +59,9 @@ form.addEventListener('submit', (e) => {
             complete: function () {
                 $(".preload").hide();
             },
-            success: function () {
+            // success: function () {
                 // $(".preloader").show();
-            }
+            // }
         });
 
 
