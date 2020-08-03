@@ -50,7 +50,7 @@ form.addEventListener('submit', (e) => {
 
         $.ajax({
             url: '/dictionary.json',
-            // type: 'POST',
+            type: 'GET',
             datatype: 'json',
 
             beforeSend: function () {
@@ -59,9 +59,27 @@ form.addEventListener('submit', (e) => {
             complete: function () {
                 $(".preload").hide();
             },
-            // success: function () {
-                // $(".preloader").show();
-            // }
+            success: function () {
+                // let data = JSON.parse(this.responseText),
+
+                //     username = form.querySelector("input[type=text]").value.toLowerCase(),
+                //     // resultat = getValues(data, username);
+                //     resultat = translate(data, username);
+                // resulthtml = document.getElementById("result").style;
+                // resulthtml.padding = "20px";
+                // resulthtml.color = "#fff";
+                // let search = document.querySelector(".search").style.height = "0";
+                // let footer = document.querySelector("#footer").style;
+                // // footer.display = "none";
+                // $('#footer').fadeOut(500, function () { $('#footer').remove(); });
+
+                // let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
+
+
+
+
+                $(".preloader").show();
+            }
         });
 
 
