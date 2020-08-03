@@ -49,12 +49,12 @@ form.addEventListener('submit', (e) => {
         };
 
         $.ajax({
-            // url: '/dictionary.json',
+            url: '/dictionary.json',
             // type: 'POST',
             datatype: 'json',
 
             beforeSend: function () {
-                $(".preload").css("opacity", "0.4").show();
+                $(".preload").css("opacity", "0.5").show();
             },
             complete: function () {
                 $(".preload").hide();
