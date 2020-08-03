@@ -386,7 +386,7 @@ footer p {
 }
 
 footer {
-  height: 9.5vh;
+  /* height: 9.5vh; */
   background: rgba(0, 0, 0, 0.397);
   /* margin-bottom: 0; */
   padding: 10px;
