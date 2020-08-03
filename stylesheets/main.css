@@ -157,8 +157,6 @@ header h1 {
   font-weight: 600;
   letter-spacing: 2px;
 
-  /* background-color: rgb(112, 31, 204); */
-  /* width: 100%; */
 }
 
 header h1,
@@ -168,45 +166,18 @@ header p {
 
 header p {
   margin-top: 20px;
-  /* letter-spacing: 1px; */
 }
 
-.navbar {
-  background-color: #0000004b;
-}
-
-.navbar-collapse li {
-  /* position: static; */
-  width: 100%;
-  text-align: center;
-  border-bottom: 2px solid #00000000;
-}
-
-.navbar-collapse li:hover {
-  border-bottom: 2px solid #ff5b3e;
-}
-
-
-/* .navbar-collapse li:hover {
-  background-color: #d2691e;
-  border-radius: 2px;
-  transition: background-color 0.7s ease;
-} */
 
 .hero {
-  /* margin-top: 100px; */
-  /* clip-path: polygon(100% 0, 100% 26%, 90% 59%, 77% 82%, 56% 95%, 39% 97%, 23% 83%, 9% 60%, 0 27%, 0 0); */
-  /* clip-path: polygon(100% 0, 100% 50%, 87% 73%, 72% 90%, 50% 96%, 45% 96%, 23% 83%, 9% 68%, 0 50%, 0 0); */
   border-bottom-left-radius: 80%;
   border-bottom-right-radius: 80%;
   width: 100%;
 
   
   height: 300px;
-  /* padding-bottom: 200px; */
   background-color: #fff;
  
-  /* background-color: coral; */
 }
 .hero2{
 
@@ -320,21 +291,23 @@ input[type="submit"]:hover {
 /* ============================================================================= */
 /* FOOTER SECTION */
 /* ============================================================================= */
-footer {
-  background: rgba(0, 0, 0, 0.397);
-  margin-bottom: 0;
-  position: absolute;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
+
 
 footer p {
   text-align: center;
   color: var(--clr-light);
 
 }
+footer {
+  background: rgba(0, 0, 0, 0.397);
+  /* margin-bottom: 0; */
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
 
 #result{
   background-color: #00000046;

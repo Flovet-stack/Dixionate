@@ -1,9 +1,13 @@
 function translate(data, key) {
     if (key in data) {
         return data[key];
+
     }
     else
-        return document.getElementById("result").innerText = `Sorry the word you search was not found. Please check the word and try again`
+    return document.getElementById("result").innerHTMl =  ['Ooooooooopsss! Sorry the word you search was not found. Please check the word and try again!'];
+    // return 'Sorry the word you search was not found. Please check the word and try again'
+    //  console.log(typeof(data[key]))
+
 
 }
 
@@ -51,8 +55,7 @@ form.addEventListener('submit', (e) => {
             resulthtml.padding = "20px";
             resulthtml.color = "#fff";
             // document.getElementById("result").innerHTML = concat(resultat([0])) ;
-            let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> '+ resultat[0];
-            console.log(typeof (display))
+            let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
 
 
 
