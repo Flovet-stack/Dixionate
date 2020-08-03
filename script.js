@@ -70,6 +70,11 @@ form.addEventListener('submit', (e) => {
             resulthtml.padding = "20px";
             resulthtml.color = "#fff";
             // document.getElementById("result").innerHTML = concat(resultat([0])) ;
+            let search = document.querySelector(".search").style.height = "0";
+            let footer = document.querySelector("#footer").style;
+            footer.display = "none";
+            // footer.margin = "200px 0 0 0";
+            // footer.position = "absolute"
             let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
 
 
