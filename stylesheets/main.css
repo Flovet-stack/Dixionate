@@ -322,8 +322,6 @@ input {
   border-bottom: 1px solid var(--clr-light);
   background-color: #03444400;
   font-family: "Alegreya", "lato", "Muli", "B612", serif;
-
-  /* font-family: "Caveat", cursive; */
   color: var(--clr-light);
   width: 100%;
   text-align: center;
@@ -332,8 +330,10 @@ input {
   background-position: left;
   background-size: 25px;
   font-size: 16px;
+  /* line-height: 20px; */
+  padding-bottom: 2px;
   /* text-transform: uppercase; */
-  /* letter-spacing: 1px; */
+  letter-spacing: 1px;
   margin: 0px auto auto auto;
 }
 
