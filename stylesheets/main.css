@@ -379,22 +379,24 @@ input[type="submit"]:hover {
 /* ============================================================================= */
 
 
-footer p {
-  text-align: center;
-  color: var(--clr-light);
 
-}
 
-footer {
+#footer {
   /* height: 9.5vh; */
   background: rgba(0, 0, 0, 0.397);
   /* margin-bottom: 0; */
   padding: 10px;
   /* position: fixed; */
   position: absolute;
+  display: block;
   bottom: 0;
   left: 0;
   width: 100%;
+}
+#footer p {
+  text-align: center;
+  color: var(--clr-light);
+
 }
 
 

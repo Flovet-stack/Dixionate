@@ -18,7 +18,11 @@ function translate(data, key) {
         return document.getElementById("result").innerHTMl = ['Ooooooooopsss! Sorry the word you search was not found. Please check the word and try again!'];
 
 }
+$('#findword').click(function (e) {
+    $('#footer').css("display", "inline").fadeOut(500)
+    e.preventDefault();
 
+});
 let form = document.getElementById('form1');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -30,19 +34,15 @@ form.addEventListener('submit', (e) => {
     rawFile.onreadystatechange = function () {
         if (rawFile.readyState === 4 && rawFile.status == "200") {
 
-            let data = JSON.parse(this.responseText),
+            let data = JSON.parse(this.responseText);
 
-                username = form.querySelector("input[type=text]").value.toLowerCase(),
-                // resultat = getValues(data, username);
-                resultat = translate(data, username);
+            let username = form.querySelector("input[type=text]").value.toLowerCase();
+            // resultat = getValues(data, username);
+            let resultat = translate(data, username);
             resulthtml = document.getElementById("result").style;
             resulthtml.padding = "20px";
             resulthtml.color = "#fff";
             let search = document.querySelector(".search").style.height = "0";
-            let footer = document.querySelector("#footer").style;
-            // footer.display = "none";
-            $('#footer').fadeOut(500, function () { $('#footer').remove(); });
-
             let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
 
 
@@ -57,28 +57,15 @@ form.addEventListener('submit', (e) => {
                 $(".preload").css("opacity", "0.5").show();
             },
             complete: function () {
-                $(".preload").hide();
+                $(".preload").remove();
             },
-            success: function () {
-                // let data = JSON.parse(this.responseText),
-
-                //     username = form.querySelector("input[type=text]").value.toLowerCase(),
-                //     // resultat = getValues(data, username);
-                //     resultat = translate(data, username);
-                // resulthtml = document.getElementById("result").style;
-                // resulthtml.padding = "20px";
-                // resulthtml.color = "#fff";
-                // let search = document.querySelector(".search").style.height = "0";
-                // let footer = document.querySelector("#footer").style;
-                // // footer.display = "none";
-                // $('#footer').fadeOut(500, function () { $('#footer').remove(); });
-
-                // let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
-
-
-
-
-                $(".preloader").show();
+            success: function (data) {
+                let username = form.querySelector("input[type=text]").value.toLowerCase();
+                username
+                // translate(data, username);/
+            },
+            error: function () {
+                alert("hello")
             }
         });
 
