@@ -42,7 +42,7 @@ form.addEventListener('submit', (e) => {
             resulthtml = document.getElementById("result").style;
             resulthtml.padding = "30px";
             resulthtml.color = "#fff";
-            resulthtml.transition = "all 2s ease"
+            resulthtml.transition = "all 2s linear"
             let search = document.querySelector(".search").style.height = "0";
             let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
 
@@ -58,14 +58,31 @@ form.addEventListener('submit', (e) => {
                 $(".preload").css("opacity", "0.5").show();
             },
             complete: function () {
-                $(".preload").remove();
+                $(".preload").hide();
             },
             success: function (data) {
-                let username = form.querySelector("input[type=text]").value.toLowerCase();
-                username
-                // translate(data, username);/
+                // let username = form.querySelector("input[type=text]").value.toLowerCase();
+                // username
+
+                // if (rawFile.readyState === 4 && rawFile.status == "200") {
+
+                //     let data = JSON.parse(this.responseText);
+
+                //     let username = form.querySelector("input[type=text]").value.toLowerCase();
+                //     // resultat = getValues(data, username);
+                //     let resultat = translate(data, username);
+                //     resulthtml = document.getElementById("result").style;
+                //     resulthtml.padding = "30px";
+                //     resulthtml.color = "#fff";
+                //     resulthtml.transition = "all 2s linear"
+                //     let search = document.querySelector(".search").style.height = "0";
+                //     let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
+                //     $(".preload").remove();
+
+
+                // };
             },
-            error: function () {document.getElementById("result").innerHTMl = ['Ooooooooopsss! Sorry the word you search was not found. Please check the word and try again!']; }
+            error: function () { document.getElementById("result").innerHTMl = ['Ooooooooopsss! Sorry the word you search was not found. Please check the word and try again!']; }
         });
 
 
