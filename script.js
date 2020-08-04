@@ -65,9 +65,7 @@ form.addEventListener('submit', (e) => {
                 username
                 // translate(data, username);/
             },
-            error: function () {
-                alert("hello")
-            }
+            error: function () {document.getElementById("result").innerHTMl = ['Ooooooooopsss! Sorry the word you search was not found. Please check the word and try again!']; }
         });
 
 
