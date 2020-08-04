@@ -40,8 +40,9 @@ form.addEventListener('submit', (e) => {
             // resultat = getValues(data, username);
             let resultat = translate(data, username);
             resulthtml = document.getElementById("result").style;
-            resulthtml.padding = "20px";
+            resulthtml.padding = "30px";
             resulthtml.color = "#fff";
+            resulthtml.transition = "all 2s ease"
             let search = document.querySelector(".search").style.height = "0";
             let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
 
