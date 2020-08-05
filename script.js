@@ -90,7 +90,7 @@ $("#search").click(function (e) {
                         resulthtml = document.getElementById("result").style;
                         resulthtml.padding = "30px";
                         resulthtml.color = "#fff";
-                        resulthtml.transition = "all 2s linear"
+                        resulthtml.transition = "all 1s linear"
                         let search = document.querySelector(".search").style.height = "0";
                         let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
                     }
