@@ -4,18 +4,64 @@ $(document).ready(function () {
         $('.preload').fadeOut(500, function () { $('.preload').hide(); });
     }
 });
+let username = document.querySelector("#findword").value.toLowerCase();
+
 //Function that gets data for json file
 function translate(data, key) {
+
     if (key in data) {
         return data[key];
-
     }
+
     else
         return document.getElementById("result").innerHTMl = ['Ooooooooopsss! Sorry the word you search was not found. Please check the word and try again!'];
 }
+
+
+// Finding closest match
+
+
+// $("#findword").focus(function (e) {
+//     // let username = document.querySelector("#findword").value.toLowerCase();
+
+//     // stringSimilarity.findBestMatch(username, [
+//     //     'For sale: green Subaru Impreza, 210,000 miles', 
+//     //     'For sale: table in very good condition, olive green in colour.', 
+//     //     'Wanted: mountain bike with at least 21 gears.'
+//     //   ]);
+
+//     console.log("hello world")
+//     console.log(username)
+//     // e.preventDefault();
+
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Search for word upon a click on the search bar
 $("#search").click(function (e) {
+
+
+
     let username = document.querySelector("#findword").value.toLowerCase();
+    // console.log(typeof(username))
+
+
+
+
+
     //Triggering ajax request
     $.ajax({
         // url: '/dictionary.json',
@@ -39,6 +85,7 @@ $("#search").click(function (e) {
                     'success': function (data) {
                         json = data;
                         // console.log(json)
+                        // console.log(username)
                         let resultat = translate(json, username);
                         resulthtml = document.getElementById("result").style;
                         resulthtml.padding = "30px";
@@ -54,6 +101,7 @@ $("#search").click(function (e) {
     });
     e.preventDefault();
 
+
 });
 
 
@@ -62,6 +110,8 @@ $('#findword').click(function (e) {
     $('#footer').css("display", "inline").fadeOut(500)
     e.preventDefault();
 });
+
+
 
 
 
