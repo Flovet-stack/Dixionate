@@ -1,14 +1,10 @@
-
-
+//Triggering preloader upon load of dom
 $(document).ready(function () {
     window.onload = function () {
         $('.preload').fadeOut(500, function () { $('.preload').hide(); });
     }
 });
-// $("form").click(function (e) {
-//     e.preventDefault();
-
-
+//Function that gets data for json file
 function translate(data, key) {
     if (key in data) {
         return data[key];
@@ -16,87 +12,62 @@ function translate(data, key) {
     }
     else
         return document.getElementById("result").innerHTMl = ['Ooooooooopsss! Sorry the word you search was not found. Please check the word and try again!'];
-
 }
+//Search for word upon a click on the search bar
+$("#search").click(function (e) {
+    let username = document.querySelector("#findword").value.toLowerCase();
+    //Triggering ajax request
+    $.ajax({
+        // url: '/dictionary.json',
+        type: 'GET',
+        datatype: 'json',
+
+        beforeSend: function () {
+            $(".preload").css("opacity", "0.4").show();
+        },
+        complete: function () {
+            $(".preload").hide();
+        },
+        success: function (data) {
+            var json = (function () {
+                var json = null;
+                $.ajax({
+                    'async': false,
+                    'global': false,
+                    'url': '/dictionary.json',
+                    'dataType': "json",
+                    'success': function (data) {
+                        json = data;
+                        // console.log(json)
+                        let resultat = translate(json, username);
+                        resulthtml = document.getElementById("result").style;
+                        resulthtml.padding = "30px";
+                        resulthtml.color = "#fff";
+                        resulthtml.transition = "all 2s linear"
+                        let search = document.querySelector(".search").style.height = "0";
+                        let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
+                    }
+                });
+            })();
+        },
+        error: function () { document.getElementById("result").innerHTMl = ['Ooooooppppsss I am so sorry genius, I am currently so busy. Please reload your browser and try again!']; }
+    });
+    e.preventDefault();
+
+});
+
+
+// Hide footer upon search to make ui presentable
 $('#findword').click(function (e) {
     $('#footer').css("display", "inline").fadeOut(500)
     e.preventDefault();
-
 });
-let form = document.getElementById('form1');
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", "/dictionary.json", true);
-
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-
-            let data = JSON.parse(this.responseText);
-
-            let username = form.querySelector("input[type=text]").value.toLowerCase();
-            // resultat = getValues(data, username);
-            let resultat = translate(data, username);
-            resulthtml = document.getElementById("result").style;
-            resulthtml.padding = "30px";
-            resulthtml.color = "#fff";
-            resulthtml.transition = "all 2s linear"
-            let search = document.querySelector(".search").style.height = "0";
-            let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
-
-
-        };
-
-        $.ajax({
-            url: '/dictionary.json',
-            type: 'GET',
-            datatype: 'json',
-
-            beforeSend: function () {
-                $(".preload").css("opacity", "0.5").show();
-            },
-            complete: function () {
-                $(".preload").hide();
-            },
-            success: function (data) {
-                // let username = form.querySelector("input[type=text]").value.toLowerCase();
-                // username
-
-                // if (rawFile.readyState === 4 && rawFile.status == "200") {
-
-                //     let data = JSON.parse(this.responseText);
-
-                //     let username = form.querySelector("input[type=text]").value.toLowerCase();
-                //     // resultat = getValues(data, username);
-                //     let resultat = translate(data, username);
-                //     resulthtml = document.getElementById("result").style;
-                //     resulthtml.padding = "30px";
-                //     resulthtml.color = "#fff";
-                //     resulthtml.transition = "all 2s linear"
-                //     let search = document.querySelector(".search").style.height = "0";
-                //     let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
-                //     $(".preload").remove();
-
-
-                // };
-            },
-            error: function () { document.getElementById("result").innerHTMl = ['Ooooooooopsss! Sorry the word you search was not found. Please check the word and try again!']; }
-        });
 
 
 
-    };
-    rawFile.send(null);
-
-
-});
-// rawFile.send(null);
-
-// });
-
-
+// ======================================================================================
+                        //Approach 2
+// ======================================================================================
 
     // rawFile.onreadystatechange = function () {
     //     if (rawFile.readyState === 4 && rawFile.status == "200") {
@@ -113,33 +84,11 @@ form.addEventListener('submit', (e) => {
     //         let footer = document.querySelector("#footer").style;
     //         footer.display = "none";
     //         let display = document.getElementById("result").innerHTML = '<h1 style="font-size: 18px; color: #fff; margin-bottom: 5px; border-bottom: 1px solid #f25f5c";>MEANING</h1> ' + resultat[0];
-
-
-
-
         //     }
-
-
         // }
-
-
         // rawFile.send(null);
 //     });
-
 // });
-
-
-
-
-
-
-
-
-
-
-
-
-
 //     // function getValues(obj, key) {
     //     var objects = [];
     //     for (var i in obj) {
@@ -155,20 +104,3 @@ form.addEventListener('submit', (e) => {
     //     }
     //     return objects;
     // }
-
-
-            // $.ajax({
-            //     url: '/dictionary.json',
-            //     type: 'GET',
-            //     datatype: 'json',
-
-            //     beforeSend: function () {
-            //         $(".preload").show();
-            //     },
-            //     complete: function () {
-            //         $(".preload").hide();
-            //     },
-            //     success: function () {
-            //         // $(".preloader").show();
-            //     }
-            // });
